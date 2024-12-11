@@ -100,6 +100,13 @@ def process_image(model_choice, num_images, height, width, prompt, seed, inferen
 
     return result
 
+
+def unload():
+    global pipe
+    del pipe
+    torch.cuda.empty_cache()
+
+
 # Gradio UI
 with gr.Blocks() as demo:
     with gr.Column():
@@ -139,6 +146,8 @@ with gr.Blocks() as demo:
                 inputs=[model_choice, num_images, height, width, prompt, seed, inference_steps],
                 outputs=[output],
             )
+    demo.unload(fn=unload)
+
 
 if __name__ == "__main__":
     demo.queue.launch()

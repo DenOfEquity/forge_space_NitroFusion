@@ -13,3 +13,5 @@ approximate minimum requirements: 8GB VRAM, 16GB RAM
 
 >[!IMPORTANT]
 >You need to copy/save the result manually.
+
+![](examples.png "example generations")
